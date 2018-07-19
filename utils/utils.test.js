@@ -6,9 +6,23 @@ it('Should add two numbers', () => {
     expect(res).toBe(55).toBeA('number');
 });
 
+it('Should async add two number', (done) => {
+   utils.asyncAdd(4, 5, (sum) => {
+      expect(sum).toBe(9).toBeA('number');
+      done();
+   });
+});
+
 it('Should square a number', () => {
     var res = utils.square(4);
     expect(res).toBe(16).toBeA('number');
+});
+
+it('Should async square a number', (done) => {
+    utils.asyncSquare(5, (res) => {
+        expect(res).toBe(25).toBeA('number');
+        done();
+    });
 });
 
 it('Should expect some values', () => {
